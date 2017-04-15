@@ -80,6 +80,54 @@ Note that the player may initially choose any of the three doors (not just Door 
 
 Simulate at least a thousand games using three doors for each strategy and show the results in such a way as to make it easy to compare the effects of each strategy.
 
+### Day 5 - Fizz Buzz
+
+Write a program that prints the numbers from 1 to 100. But for multiples of three print “Fizz” instead of the number and for the multiples of five print “Buzz”. For numbers which are multiples of both three and five print “FizzBuzz”.
+
+Sample output:
+
+1
+
+2
+
+Fizz
+
+4
+
+Buzz
+
+Fizz
+
+7
+
+8
+
+Fizz
+
+Buzz
+
+11
+
+Fizz
+
+13
+
+14
+
+FizzBuzz
+
+16
+
+17
+
+Fizz
+
+19
+
+Buzz
+
+… etc up to 100
+
 ## Author
 
 [Dusan Perisic](http://dusanperisic.com)
