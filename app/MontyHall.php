@@ -32,10 +32,6 @@ class MontyHall {
      * @var
      */
     protected $hostOpen;
-    /**
-     * @var string
-     */
-    protected $playerNextStep = "PlayerSecondStep";
 
     /**
      * MontyHall constructor.
@@ -60,20 +56,12 @@ class MontyHall {
 
     /**
      * @param int $dorId
-     * @return string
+     * @return int
      * @author Dusan Perisic
      */
     public function playerFirstOpen( int $dorId)
     {
-        $this->playerOpen = $dorId;
-        if ($this->carDor == $this->playerOpen)
-        {
-            return "Car";
-        }
-        else
-        {
-            return $this->playerNextStep;
-        }
+        return $this->playerOpen = $dorId;
     }
 
     /**
@@ -82,7 +70,24 @@ class MontyHall {
      */
     public function hostOpen()
     {
-        return $this->hostOpen = 3 - $this->playerOpen - $this->carDor;
+        $options = array_diff([0, 1, 2], [$this->playerOpen, $this->carDor]);
+        if (sizeof($options) == 2)
+        {
+            if (rand(1, 2) == 2)
+            {
+                $this->hostOpen = array_last($options);
+            }
+            else
+            {
+                $this->hostOpen = array_first($options);
+            }
+        }
+        else
+        {
+            $this->hostOpen = array_first($options);
+        }
+
+        return $this->hostOpen;
     }
 
     /**

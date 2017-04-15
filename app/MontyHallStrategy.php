@@ -18,7 +18,7 @@ class MontyHallStrategy extends MontyHall  {
     /**
      * @var int
      */
-    private $numberOfTests = 10;
+    private $numberOfTests = 1000;
     /**
      * @var
      */
@@ -26,7 +26,7 @@ class MontyHallStrategy extends MontyHall  {
 
     /**
      * @param bool $changeDor
-     * @return mixed
+     * @return array
      * @author Dusan Perisic
      */
     public function runStrategy( bool $changeDor = false)
@@ -36,32 +36,15 @@ class MontyHallStrategy extends MontyHall  {
             "Car" => 0,
             "Goat"=> 0
         ];
-
-        return $this->playStrategy($this->numberOfTests);
-    }
-
-    /**
-     * @param $testNumber
-     * @return mixed
-     * @author Dusan Perisic
-     */
-    private function playStrategy( $testNumber)
-    {
-        if ($testNumber < 0)
-        {
-            return $this->memory;
-        }
-        else
+        for($i = 0; $i < $this->numberOfTests; $i++)
         {
             $this->setGame();
-            $playerOption = $this->playerFirstOpen(rand(0,2));
-            if ($playerOption == $this->playerNextStep)
-            {
-                $this->hostOpen();
-                $playerOption = $this->playerSecondStep($this->changeDor);
-            }
+            $this->playerFirstOpen(rand(0,2));
+            $this->hostOpen();
+            $playerOption = $this->playerSecondStep($this->changeDor);
             $this->memory[$playerOption]++;
-            return $this->playStrategy($testNumber - 1);
         }
+
+        return $this->memory;
     }
 }

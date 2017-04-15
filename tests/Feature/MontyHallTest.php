@@ -23,7 +23,7 @@ class MontyHallTest extends TestCase
     {
         $game = new MontyHall();
         $playerFirstStep = $game->playerFirstOpen(rand(0,2));
-        $this->assertTrue(is_string($playerFirstStep));
+        $this->assertTrue(is_integer($playerFirstStep));
     }
 
     /**
@@ -32,12 +32,8 @@ class MontyHallTest extends TestCase
     public function testHostOpenDor()
     {
         $game = new MontyHall();
-        while ($game->playerFirstOpen(rand(0,2)) != "Car")
-        {
-            $hostOppenedDor = $game->hostOpen();
-            $this->assertTrue(is_integer($hostOppenedDor));
-        }
-        $this->assertTrue(true);
+        $hostOppenedDor = $game->hostOpen();
+        $this->assertTrue(is_integer($hostOppenedDor));
     }
 
     /**
@@ -46,19 +42,18 @@ class MontyHallTest extends TestCase
     public function testPlayerSecondStep()
     {
         $game = new MontyHall();
-        while ($game->playerFirstOpen(rand(0,2)) != "Car")
-        {
-            $game->hostOpen();
-            $result = $game->playerSecondStep();
-            $this->assertTrue(is_string($result));
-        }
-        while ($game->playerFirstOpen(rand(0,2)) != "Car")
-        {
-            $game->hostOpen();
-            $result = $game->playerSecondStep(true);
-            $this->assertTrue(is_string($result));
-        }
-        $this->assertTrue(true);
+        $playerOption = $game->playerFirstOpen(rand(0,2));
+        $hostOption = $game->hostOpen();
+        $this->assertTrue($playerOption != $hostOption);
+        $result = $game->playerSecondStep();
+        $this->assertTrue(is_string($result));
+
+        $game = new MontyHall();
+        $playerOption = $game->playerFirstOpen(rand(0,2));
+        $hostOption = $game->hostOpen();
+        $this->assertTrue($playerOption != $hostOption);
+        $result = $game->playerSecondStep(true);
+        $this->assertTrue(is_string($result));
     }
 
     /**
