@@ -190,6 +190,51 @@ Is it possible to modify the behaviour of one of them to become more consistent 
 
 If you modify one of the classes – do you feel confident you do not break anything? If you don’t feel confident, what can you do about that?
 
+### Day 9 - Bowling Game
+
+Write a program, to score a game of Ten-Pin Bowling.
+
+The scoring rules:
+
+- Each game, or “line” of bowling, includes ten turns, or “frames” for the bowler.
+- In each frame, the bowler gets up to two tries to knock down all ten pins.
+- If the first ball in a frame knocks down all ten pins, this is called a “strike”. The frame is over. The score for the frame is ten plus the total of the pins knocked down in the next two balls.
+- If the second ball in a frame knocks down all ten pins, this is called a “spare”. The frame is over. The score for the frame is ten plus the number of pins knocked down in the next ball.
+- If, after both balls, there is still at least one of the ten pins standing the score for that frame is simply the total number of pins knocked down in those two balls.
+- If you get a spare in the last (10th) frame you get one more bonus ball. If you get a strike in the last (10th) frame you get two more bonus balls.
+- These bonus throws are taken as part of the same turn. If a bonus ball knocks down all the pins, the process does not repeat. The bonus balls are only used to calculate the score of the final frame.
+- The game score is the total of all frame scores.
+
+Examples:
+
+X indicates a strike <br>
+/ indicates a spare <br>
+(-) indicates a miss <br>
+| indicates a frame boundary <br>
+
+X|X|X|X|X|X|X|X|X|X||XX <br>
+Ten strikes on the first ball of all ten frames. <br>
+Two bonus balls, both strikes. <br>
+Score for each frame == 10 + score for next two <br>
+balls == 10 + 10 + 10 == 30 <br>
+Total score == 10 frames x 30 == 300
+
+9-|9-|9-|9-|9-|9-|9-|9-|9-|9-|| <br>
+Nine pins hit on the first ball of all ten frames. <br>
+Second ball of each frame misses last remaining pin. <br>
+No bonus balls. <br>
+Score for each frame == 9 <br>
+Total score == 10 frames x 9 == 90 <br>
+
+5/|5/|5/|5/|5/|5/|5/|5/|5/|5/||5 <br>
+Five pins on the first ball of all ten frames. <br>
+Second ball of each frame hits all five remaining <br>
+pins, a spare. <br>
+One bonus ball, hits five pins. <br>
+Score for each frame == 10 + score for next one <br>
+ball == 10 + 5 == 15 <br>
+Total score == 10 frames x 15 == 150 <br>
+
 ## Author
 
 [Dusan Perisic](http://dusanperisic.com)
