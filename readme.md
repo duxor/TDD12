@@ -235,6 +235,16 @@ Score for each frame == 10 + score for next one <br>
 ball == 10 + 5 == 15 <br>
 Total score == 10 frames x 15 == 150 <br>
 
+### Day 10 - Phone Numbers
+
+Given a list of phone numbers, determine if it is consistent. In a consistent phone list no number is a prefix of another. For example:
+
+- Bob 91 12 54 26
+- Alice 97 625 992
+- Emergency 911
+
+In this case, it is not possible to call Bob because the phone exchange would direct your call to the emergency line as soon as you dialled the first three digits of Bob’s phone number. So this list would not be consistent.
+
 ## Author
 
 [Dusan Perisic](http://dusanperisic.com)
