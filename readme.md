@@ -245,6 +245,50 @@ Given a list of phone numbers, determine if it is consistent. In a consistent ph
 
 In this case, it is not possible to call Bob because the phone exchange would direct your call to the emergency line as soon as you dialled the first three digits of Bob’s phone number. So this list would not be consistent.
 
+### Day 11 - Poker Hands
+
+A poker deck contains 52 cards – each card has a suit which is one of clubs, diamonds, hearts, or spades (denoted C, D, H, and S in the input data).
+
+Each card also has a value which is one of 2, 3, 4, 5, 6, 7, 8, 9, 10, jack, queen, king, ace (denoted 2, 3, 4, 5, 6, 7, 8, 9, T, J, Q, K, A).
+
+For scoring purposes, the suits are unordered while the values are ordered as given above, with 2 being the lowest and ace the highest value.
+
+A poker hand consists of 5 cards dealt from the deck. Poker hands are ranked by the following partial order from lowest to highest.
+
+<b>High Card:</b> Hands which do not fit any higher category are ranked by the value of their highest card. If the highest cards have the same value, the hands are ranked by the next highest, and so on.
+
+<b>Pair:</b> 2 of the 5 cards in the hand have the same value. Hands which both contain a pair are ranked by the value of the cards forming the pair. If these values are the same, the hands are ranked by the values of the cards not forming the pair, in decreasing order.
+
+<b>Two Pairs:</b> The hand contains 2 different pairs. Hands which both contain 2 pairs are ranked by the value of their highest pair. Hands with the same highest pair are ranked by the value of their other pair. If these values are the same the hands are ranked by the value of the remaining card.
+
+<b>Three of a Kind:</b> Three of the cards in the hand have the same value. Hands which both contain three of a kind are ranked by the value of the 3 cards.
+
+<b>Straight:</b> Hand contains 5 cards with consecutive values. Hands which both contain a straight are ranked by their highest card.
+
+<b>Flush:</b> Hand contains 5 cards of the same suit. Hands which are both flushes are ranked using the rules for High Card.
+
+<b>Full House:</b> 3 cards of the same value, with the remaining 2 cards forming a pair. Ranked by the value of the 3 cards.
+
+<b>Four of a kind:</b> 4 cards with the same value. Ranked by the value of the 4 cards.
+
+<b>Straight flush:</b> 5 cards of the same suit with consecutive values. Ranked by the highest card in the hand.
+
+Your job is to rank pairs of poker hands and to indicate which, if either, has a higher rank.
+
+Examples:
+
+Input: Black: 2H 3D 5S 9C KD White: 2C 3H 4S 8C AH <br>
+Output: White wins – high card: Ace
+
+Input: Black: 2H 4S 4C 2D 4H White: 2S 8S AS QS 3S <br>
+Output: Black wins – full house
+
+Input: Black: 2H 3D 5S 9C KD White: 2C 3H 4S 8C KH <br>
+Output: Black wins – high card: 9
+
+Input: Black: 2H 3D 5S 9C KD White: 2D 3H 5C 9S KH <br>
+Output: Tie
+
 ## Author
 
 [Dusan Perisic](http://dusanperisic.com)
